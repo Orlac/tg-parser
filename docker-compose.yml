@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+    tgclientpython:
+        image: tgclientpython
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./src:/app
+        # command:
+        #     - pip install -r /app/requirements.txt
+        #     - python ./main.py
+  # db:
+  #     image: mariadb:10.6
+  #     restart: always
+  #     volumes:
+  #         - ./mariadb:/var/lib/mysql
+  #     environment:
+  #         MYSQL_ROOT_PASSWORD: 123
+  # phpmyadmin:
+  #     image: phpmyadmin/phpmyadmin
+  #     restart: always
+  #     ports:
+  #         - 8080:80
+  #     environment:
+  #         - PMA_ARBITRARY=1
